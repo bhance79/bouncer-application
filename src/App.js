@@ -4,24 +4,31 @@ import Home from './components/Home';
 import About from './components/About';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
+import Events from './components/Events';
+import Account from './components/Account';
 import Navbar from './components/Navbar';
+import { UserProvider } from './UserContext';
 import './App.css'; // Assuming you have a general stylesheet
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="container mx-auto p-4">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
+    <UserProvider>
+      <Router>
+        <div className="App h-screen flex flex-col">
+          <Navbar />
+          <div className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/account" element={<Account />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </UserProvider>
   );
 }
 

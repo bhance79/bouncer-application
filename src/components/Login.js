@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../UserContext';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -12,6 +16,8 @@ function Login() {
       const response = await axios.post('http://localhost:5000/login', { username, password });
       if (response.data.status === 'success') {
         setMessage(`Welcome, ${response.data.name}`);
+        setUser({ id: response.data.user_id, name: response.data.name });
+        navigate('/events', { state: { user_id: response.data.user_id } });
       } else {
         setMessage(response.data.message);
       }
@@ -21,10 +27,9 @@ function Login() {
   };
 
   return (
-    <div className="container mx-auto p-8" id="container">
-      <div className="form-container sign-in">
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <img src="/static/images/bouncer logo.png" alt="Logo" className="logo mb-4" />
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="form-container sign-in bg-gradient-to-r from-purple-400 via-mainPurple to-darkPurple rounded-lg w-96 p-8 shadow-md">
+        <form onSubmit={handleSubmit} className="flex flex-col items-center bg-white p-6 rounded-lg shadow-inner">
           <div className="social-icons flex justify-center mb-4">
             <a href="#" className="icon mx-2"><i className="fab fa-google-plus-g"></i></a>
             <a href="#" className="icon mx-2"><i className="fab fa-facebook-f"></i></a>
@@ -50,10 +55,10 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <a href="#" className="block mb-4 text-sm text-purple-600 hover:underline">Forget Your Password?</a>
+          <a href="#" className="block mb-4 text-sm text-darkPurple hover:underline">Forget Your Password?</a>
           <button
             type="submit"
-            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-mainPurple hover:bg-darkPurple text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Sign In
           </button>
