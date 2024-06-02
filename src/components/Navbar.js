@@ -12,7 +12,11 @@ function Navbar() {
           <img src="/bouncer logo.png" alt="Logo" className="h-12 w-auto mr-2" />
         </Link>
         <div className="flex space-x-6">
-          <Link to="/" className="text-darkPurple font-semibold hover:text-mainPurple py-2">Home</Link>
+          {user ? (
+            <Link to="/events" className="text-darkPurple font-semibold hover:text-mainPurple py-2">Home</Link>
+          ) : (
+            <Link to="/" className="text-darkPurple font-semibold hover:text-mainPurple py-2">Home</Link>
+          )}
           <Link to="/events" className="text-darkPurple font-semibold hover:text-mainPurple py-2">See What's Next</Link>
           <Link to="/about" className="text-darkPurple font-semibold hover:text-mainPurple py-2">About</Link>
           <Link to="/contact" className="text-darkPurple font-semibold hover:text-mainPurple py-2">Contact Us</Link>

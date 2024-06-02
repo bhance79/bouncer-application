@@ -16,8 +16,14 @@ function Login() {
       const response = await axios.post('http://localhost:5000/login', { username, password });
       if (response.data.status === 'success') {
         setMessage(`Welcome, ${response.data.name}`);
-        setUser({ id: response.data.user_id, name: response.data.name });
-        navigate('/events', { state: { user_id: response.data.user_id } });
+        setUser({
+          id: response.data.user_id,
+          name: response.data.name,
+          username: response.data.username,
+          email: response.data.email,
+          role: response.data.role,
+        });
+        navigate('/events');
       } else {
         setMessage(response.data.message);
       }
@@ -27,7 +33,7 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="form-container sign-in bg-gradient-to-r from-purple-400 via-mainPurple to-darkPurple rounded-lg w-96 p-8 shadow-md">
         <form onSubmit={handleSubmit} className="flex flex-col items-center bg-white p-6 rounded-lg shadow-inner">
           <div className="social-icons flex justify-center mb-4">

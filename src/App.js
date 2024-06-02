@@ -5,8 +5,8 @@ import About from './components/About';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Events from './components/Events';
-import Account from './components/Account';
 import Navbar from './components/Navbar';
+import Account from './components/Account'; // Import the Account component
 import { UserProvider } from './UserContext';
 import './App.css'; // Assuming you have a general stylesheet
 
