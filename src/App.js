@@ -6,6 +6,7 @@ import About from './components/About';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Events from './components/Events';
+import FutureEvents from './components/FutureEvents';
 import Navbar from './components/Navbar';
 import Account from './components/Account';
 import { UserProvider } from './UserContext';
@@ -43,6 +44,7 @@ function AnimatedRoutes() {
           <Route path="/login" element={<Login />} />
           <Route path="/events" element={<Events />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/future-events" element={<FutureEvents />} />
         </Routes>
       </CSSTransition>
     </TransitionGroup>

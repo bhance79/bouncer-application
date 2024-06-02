@@ -23,7 +23,7 @@ function Account() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start mt-12">
+    <div className="middleofpage">
       <div className="relative p-8 bg-gradient-to-r from-purple-400 via-mainPurple to-darkPurple rounded-lg">
         <div className="bg-white rounded-lg w-full max-w-xl h-auto p-12 shadow-md">
           <h1 className="text-2xl font-bold mb-4 p-8">Account Details</h1>

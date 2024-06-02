@@ -17,7 +17,7 @@ function Navbar() {
           ) : (
             <Link to="/" className="text-darkPurple font-semibold hover:text-mainPurple py-2">Home</Link>
           )}
-          <Link to="/events" className="text-darkPurple font-semibold hover:text-mainPurple py-2">See What's Next</Link>
+          <Link to="/future-events" className="text-darkPurple font-semibold hover:text-mainPurple py-2">See What's Next</Link>
           <Link to="/about" className="text-darkPurple font-semibold hover:text-mainPurple py-2">About</Link>
           <Link to="/contact" className="text-darkPurple font-semibold hover:text-mainPurple py-2">Contact Us</Link>
           {user ? (

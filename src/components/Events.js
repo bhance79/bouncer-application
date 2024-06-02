@@ -25,7 +25,15 @@ function Events() {
         console.log(`Fetching events for user id: ${user.id}`);
         const response = await axios.get(`http://localhost:5000/events/${user.id}`);
         console.log('Fetched events:', response.data);  // Debug log
-        setEvents(response.data);
+
+        // Sort events so that joinable events appear first
+        const sortedEvents = response.data.sort((a, b) => {
+          if (a.joinable && !b.joinable) return -1;
+          if (!a.joinable && b.joinable) return 1;
+          return 0;
+        });
+
+        setEvents(sortedEvents);
       } catch (error) {
         console.error('Error fetching events', error);
       }
@@ -51,22 +59,21 @@ function Events() {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="middleofpage">
-      <div className="p-8 bg-gradient-to-r from-purple-400 via-mainPurple to-darkPurple rounded-lg">
-        <div className="bg-white rounded-lg w-full max-w-xl h-auto p-12 shadow-md text-center">
-          <h1 className="text-3xl font-bold mb-6 p-2">Welcome back, {user.name}!</h1>
-          <h2 className="text-xl font-semibold mb-4 text-left py-6">Your Events:</h2>
+      <div className="relative p-8 bg-gradient-to-r from-purple-400 via-mainPurple to-darkPurple rounded-lg w-full max-w-[60vw]">
+        <div className="bg-white rounded-lg w-full h-auto p-8 shadow-md max-h-[65vh] overflow-y-auto">
+          <h1 className="text-3xl font-bold mb-6">Welcome back, {user.name}!</h1>
+          <h2 className="text-xl font-semibold mb-4 text-left">Your Events:</h2>
           {events.length === 0 ? (
             <p>No events available</p>
           ) : (
-            <ul className="space-y-4">
+            <div className="text-xl space-y-6 text-left">
               {events.map((event, index) => (
-                <li key={index} className="flex justify-between items-center mb-10">
+                <div key={index} className="mb-4 flex items-start p-4 hover:bg-gray-200 transition duration-300 ease-in-out rounded-lg">
+                  {event.image_url && (
+                    <img src={event.image_url} alt={event.event_name} className="h-24 w-24 object-cover mr-4 rounded-lg" />
+                  )}
                   <div className="flex-grow">
                     <h3 className="text-lg font-semibold text-left">{event.event_name}</h3>
                     <p className="text-left">{event.event_description}</p>
@@ -87,9 +94,9 @@ function Events() {
                       <span className="text-gray-500">No link available</span>
                     )}
                   </div>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
         </div>
       </div>
