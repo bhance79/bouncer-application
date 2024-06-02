@@ -33,7 +33,7 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="middleofpage">
       <div className="form-container sign-in bg-gradient-to-r from-purple-400 via-mainPurple to-darkPurple rounded-lg w-96 p-8 shadow-md">
         <form onSubmit={handleSubmit} className="flex flex-col items-center bg-white p-6 rounded-lg shadow-inner">
           <div className="social-icons flex justify-center mb-4">

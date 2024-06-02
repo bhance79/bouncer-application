@@ -28,7 +28,7 @@ function ContactUs() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="middleofpage">
       <div className="relative p-8 bg-gradient-to-r from-purple-400 via-mainPurple to-darkPurple rounded-lg w-full max-w-lg">
         <div className="bg-white rounded-lg p-8 shadow-md w-full">
           <h1 className="text-2xl font-bold mb-6">Request a Quote</h1>

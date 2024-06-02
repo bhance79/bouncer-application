@@ -23,11 +23,11 @@ function Account() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-start mt-12">
       <div className="relative p-8 bg-gradient-to-r from-purple-400 via-mainPurple to-darkPurple rounded-lg">
         <div className="bg-white rounded-lg w-full max-w-xl h-auto p-12 shadow-md">
-          <h1 className="text-2xl font-bold mb-4">Account Details</h1>
-          <div className="space-y-2 text-left">
+          <h1 className="text-2xl font-bold mb-4 p-8">Account Details</h1>
+          <div className="text-xl space-y-6 text-left">
             <p><strong>Name:</strong> {user.name}</p>
             <p><strong>Username:</strong> {user.username}</p>
             <p><strong>Email:</strong> {user.email}</p>
@@ -35,7 +35,7 @@ function Account() {
           </div>
           <button
             onClick={handleSignOut}
-            className="bg-mainPurple hover:bg-darkPurple text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
+            className="bg-mainPurple hover:bg-darkPurple text-white font-bold py-2 mt-10 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Sign Out
           </button>
