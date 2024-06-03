@@ -14,7 +14,7 @@ const ThreeScene = () => {
     animate();
 
     function init() {
-      // Create a container element for the scene
+      // Create a container element for the scene meh
       const container = document.createElement('div');
       document.getElementById('three-scene').appendChild(container);
 
