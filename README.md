@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# Bouncer - Seamless Live Event Experience
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Bouncer, your premier gateway to seamless live event experiences. This project bridges the gap between event holders like Ticketmaster and LiveNation and live streaming services such as Zoom, YouTube, and Microsoft Teams.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Bouncer aims to provide a user-friendly and secure environment where users can easily access and enjoy their favorite events. Once logged in, users will find all the events they currently own tickets for conveniently listed. If an event is live, a button to join the call is displayed, allowing instant access to the livestream without any hassle.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- User authentication and authorization.
+- Display of user-specific events.
+- Integration with Ticketmaster API for future events.
+- Responsive design using React and Tailwind CSS.
+- Interactive 3D scene using Three.js.
+- Secure and seamless access to live streams.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- **Frontend**: React, Tailwind CSS, Three.js
+- **Backend**: Flask
+- **Database**: MySQL
+- **API**: Ticketmaster API
+- **Authentication**: JWT
+- **Environment Management**: dotenv
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ensure you have the following installed:
 
-### `npm run eject`
+- Node.js and npm
+- Python 3
+- MySQL
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Clone the Repository
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/your-username/bouncer.git
+cd bouncer
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Create a virtual environment and activate it:
 
-## Learn More
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install the required packages:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+pip install -r requirements.txt
+```
 
-### Code Splitting
+3. Create a `.env` file in the `backend` directory and add your environment variables:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+DB_HOST=your_db_host
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_NAME=your_db_name
+TICKETMASTER_API_KEY=your_ticketmaster_api_key
+```
 
-### Analyzing the Bundle Size
+4. Run the Flask server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+cd backend
+flask run
+```
 
-### Making a Progressive Web App
+### Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Install the required packages:
 
-### Advanced Configuration
+```bash
+cd frontend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. Run the React development server:
 
-### Deployment
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Usage
 
-### `npm run build` fails to minify
+1. Navigate to `http://localhost:3000` to access the frontend.
+2. Use the provided login credentials or create a new account.
+3. Access your events and join live streams seamlessly.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Structure
+
+```
+bouncer/
+├── backend/
+│   ├── app.py
+│   ├── .env
+│   ├── requirements.txt
+│   └── ...
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Home.js
+│   │   │   ├── About.js
+│   │   │   ├── ContactUs.js
+│   │   │   ├── Login.js
+│   │   │   ├── Events.js
+│   │   │   ├── FutureEvents.js
+│   │   │   └── ThreeScene.js
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── ...
+│   ├── .env
+│   ├── package.json
+│   └── ...
+└── README.md
+```
+
+## Contributing
+
+Contributions are welcome! Please fork this repository, make your changes, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+```
+
+### How to Use
+
+1. **Replace `your-username` with your GitHub username** in the clone command.
+2. **Add your actual database and API credentials** in the `.env` files for both backend and frontend.
+3. **Ensure the directory structure in the `Project Structure` section matches your actual project structure**.
+
+This `README.md` provides a comprehensive guide to your project, including setup instructions, usage, and contributing guidelines.
